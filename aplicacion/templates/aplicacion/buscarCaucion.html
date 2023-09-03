@@ -1,0 +1,25 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+
+    Cauciones
+
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Inversiones</h1>
+
+    <h4>Buscar Caución</h4>
+
+    <form action="/buscar_caucion2" method="get">
+        {% csrf_token %}
+        
+        <p>Patron a buscar en cauciones:<input type="text" name="buscar" id="buscar"></p>>
+        
+        <input type="submit" value="Enviar">
+
+    </form>
+
+{% endblock contenido %}

@@ -1,0 +1,25 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+
+    Bonos
+
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Inversiones</h1>
+
+    <h4>Buscar Bono</h4>
+
+    <form action="/buscar_bono2" method="get">
+        {% csrf_token %}
+        
+        <p>Patron a buscar en bonos:<input type="text" name="buscar" id="buscar"></p>>
+        
+        <input type="submit" value="Enviar">
+
+    </form>
+
+{% endblock contenido %}

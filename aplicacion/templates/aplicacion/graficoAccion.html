@@ -1,0 +1,16 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<h1>Detalles de la Acción</h1>
+{% endblock titulo %}
+{% block contenido %}
+
+
+<h4>Gráfico de Precios para {{ accion.nomenclatura }}</h4>
+<img src="/media/graficos/{{nomenclatura}}_grafico.png" alt="Gráfico de Precios" width="100%" height="auto">
+  
+
+
+
+ {% endblock contenido %}

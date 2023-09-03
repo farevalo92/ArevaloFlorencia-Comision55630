@@ -1,0 +1,83 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+
+    Cauciones
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<table>
+    <tr>
+        <td width="200"><h2>Cauciones</h2></td>
+        <td>
+            <a
+            href="{% url 'create_cauciones' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+            </a>
+
+            <a
+            href="{% url 'buscar_cauciones' %}"
+            class="btn btn-secundary"
+            ><i class="bi bi-search" title="Search Record">Search </i>
+            </a>
+
+
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Nomenclatura</th>
+            <th>Nominales</th>
+            <th>Fecha de Actualización</th>
+            <th>Valor de la Inversión</th>
+
+
+            
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+    {% for caucion in cauciones_list %}
+    <tr>
+        <td>{{ caucion.id }}</td>
+        <td>{{ caucion.nombre }}</td>
+        <td>{{ caucion.nomenclatura }}</td>
+        <td>{{ caucion.nominales }}</td>
+        <td>{{ caucion.fecha_actualizacion }}</td>
+        <td>{{ caucion.valor_total }}</td>
+        
+
+            <td>
+            
+        
+            <a
+              href="{% url 'update_cauciones' caucion.id %}"
+              class="btn btn-primary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+              href="{% url 'delete_cauciones' caucion.id %}"
+              class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+               
+          </td>        
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

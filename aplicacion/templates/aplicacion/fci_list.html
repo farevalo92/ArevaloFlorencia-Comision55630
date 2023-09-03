@@ -1,0 +1,84 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+
+    Fondos Comunes de Inversion
+
+
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<table>
+    <tr>
+        <td width="200"><h2>FCI</h2></td>
+        <td>
+            <a
+            href="{% url 'create_fci' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+            </a>
+
+            <a
+            href="{% url 'buscar_fci' %}"
+            class="btn btn-secundary"
+            ><i class="bi bi-search" title="Search Record">Search </i>
+            </a>
+
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Nomenclatura</th>
+            <th>Cuotapartes</th>
+            <th>Fecha de Actualización</th>
+            <th>Valor de la Inversión</th>
+
+            
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+    {% for fci in fci_list %}
+    <tr>
+        <td>{{ fci.id }}</td>
+        <td>{{ fci.nombre }}</td>
+        <td>{{ fci.nomenclatura }}</td>
+        <td>{{ fci.cuotapartes }}</td>
+        <td>{{ fci.fecha_actualizacion }}</td>
+        <td>{{ fci.valor_total }}</td>
+
+        
+
+            <td>
+
+        
+            <a
+              href="{% url 'update_fci' fci.id %}"
+              class="btn btn-primary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+              href="{% url 'delete_fci' fci.id %}"
+              class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+               
+          </td>        
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

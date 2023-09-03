@@ -1,0 +1,25 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+
+    Home
+
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Inversiones</h1>
+
+    <h4>Buscar FCI</h4>
+
+    <form action="/buscar_fci2" method="get">
+        {% csrf_token %}
+        
+        <p>Patron a buscar en fci:<input type="text" name="buscar" id="buscar"></p>>
+        
+        <input type="submit" value="Enviar">
+
+    </form>
+
+{% endblock contenido %}
