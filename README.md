@@ -57,3 +57,5 @@ Se creó otro usuario de prueba:
 usuario: farevalo92
 contrasena:Fl0r3nc14
 
+
+Agrego link a youtube para ver la navegacion en el sitio : https://www.youtube.com/watch?v=KZauRRo6aMg
